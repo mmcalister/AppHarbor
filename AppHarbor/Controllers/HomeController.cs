@@ -10,7 +10,7 @@ namespace AppHarbor.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump start your ASP.NET MVC application.";
+            ViewBag.Message = "Home of the Mom Locator";
 
             return View();
         }
