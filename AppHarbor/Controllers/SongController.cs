@@ -9,33 +9,33 @@ using AppHarbor.Models;
 
 namespace AppHarbor.Controllers
 {
-    public class PeopleController : Controller
+    public class SongController : Controller
     {
         private DefaultConnection db = new DefaultConnection();
 
         //
-        // GET: /People/
+        // GET: /Song/
 
         public ActionResult Index()
         {
-            return View(db.People.ToList());
+            return View(db.Songs.ToList());
         }
 
         //
-        // GET: /People/Details/5
+        // GET: /Song/Details/5
 
         public ActionResult Details(Guid? id = null)
         {
-            Person person = db.People.Find(id);
-            if (person == null)
+            Song song = db.Songs.Find(id);
+            if (song == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(song);
         }
 
         //
-        // GET: /People/Create
+        // GET: /Song/Create
 
         public ActionResult Create()
         {
@@ -43,71 +43,71 @@ namespace AppHarbor.Controllers
         }
 
         //
-        // POST: /People/Create
+        // POST: /Song/Create
 
         [HttpPost]
-        public ActionResult Create(Person person)
+        public ActionResult Create(Song song)
         {
             if (ModelState.IsValid)
             {
-                person.Id = Guid.NewGuid();
-                db.People.Add(person);
+                song.Id = Guid.NewGuid();
+                db.Songs.Add(song);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(person);
+            return View(song);
         }
 
         //
-        // GET: /People/Edit/5
+        // GET: /Song/Edit/5
 
         public ActionResult Edit(Guid? id = null)
         {
-            Person person = db.People.Find(id);
-            if (person == null)
+            Song song = db.Songs.Find(id);
+            if (song == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(song);
         }
 
         //
-        // POST: /People/Edit/5
+        // POST: /Song/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Person person)
+        public ActionResult Edit(Song song)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(person).State = EntityState.Modified;
+                db.Entry(song).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(person);
+            return View(song);
         }
 
         //
-        // GET: /People/Delete/5
+        // GET: /Song/Delete/5
 
         public ActionResult Delete(Guid? id = null)
         {
-            Person person = db.People.Find(id);
-            if (person == null)
+            Song song = db.Songs.Find(id);
+            if (song == null)
             {
                 return HttpNotFound();
             }
-            return View(person);
+            return View(song);
         }
 
         //
-        // POST: /People/Delete/5
+        // POST: /Song/Delete/5
 
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(Guid id)
         {
-            Person person = db.People.Find(id);
-            db.People.Remove(person);
+            Song song = db.Songs.Find(id);
+            db.Songs.Remove(song);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

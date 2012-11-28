@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.ComponentModel;
+using Common.Extensions;
 
 namespace AppHarbor.Models
 {
@@ -38,8 +39,30 @@ namespace AppHarbor.Models
         public string Country       { get; set; }
     }
 
-    public class PersonDBContext : DbContext
+    public class Song
+    {
+        [Key]
+        public Guid Id { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
+        public byte[] BinaryData
+        {
+            get
+            {
+                return this.BinaryData.Decompress();
+            }
+            set
+            {
+                this.BinaryData = value.Compress();
+            }
+        }
+    }
+
+
+    public class DefaultConnection : DbContext
     {
         public DbSet<Person> People { get; set; }
+
+        public DbSet<Song> Songs { get; set; }
     }
 }

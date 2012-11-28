@@ -166,10 +166,20 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\SongController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201211170246218_InitialCreate.cs" />
+    <Compile Include="Migrations\201211170246218_InitialCreate.Designer.cs">
+      <DependentUpon>201211170246218_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201211281248513_InitialMig.cs" />
+    <Compile Include="Migrations\201211281248513_InitialMig.Designer.cs">
+      <DependentUpon>201211281248513_InitialMig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\PersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,6 +319,35 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\People\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{80991E23-86CE-4AFF-AA22-3763564AD37A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Song\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Song\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Song\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Song\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Song\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201211170246218_InitialCreate.resx">
+      <DependentUpon>201211170246218_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201211281248513_InitialMig.resx">
+      <DependentUpon>201211281248513_InitialMig.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
